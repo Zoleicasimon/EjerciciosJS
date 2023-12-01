@@ -87,11 +87,11 @@ let vocalesEncontradas = '';
 for (let index=0; index<longitud; index++){
 let a=frase.charAt(index);
   if(a==='a' |  a==='e' | a==='i' | a==='o' | a==='u'){
-    vocalesEncontradas += a;
+    vocalesEncontradas += a ;
   
 }
 }
-console.log(vocalesEncontradas);
+console.log('Sus vocales extraidas son: ', vocalesEncontradas);
 
 //10.10.- Escribe un programa que pida un número y nos diga si es divisible por 2, 3, 5 o 7 (sólo hay que comprobar si lo es por uno de los cuatro)
 
@@ -104,7 +104,9 @@ if(a%2===0){
     }else if (a%5===0){
         console.log('Su numero es divisible en cinco');
 }else if (a%7===0){
-        console.log('Su numero es divisible en siete')
+        console.log('Su numero es divisible en siete');
+}else{
+    console.log('su numero no es divisible en ningun nro');
 }
 
 //11.Añadir al ejercicio anterior que nos diga por cuál de los cuatro es divisible (hay que decir todos por los que es divisible)
