@@ -22,26 +22,28 @@ if (edad>18){
 
 Si ingreso un número que no esté dentro del rango de 0 a 10 mostrar un mensaje de “número erróneo”. Si el número ingresado no es válido mostrar el mensaje “Introduce un número válido”.*/
 
+ 
 
-let nro=parseInt(prompt('Ingrese su edad'))
+let nro=parseInt(prompt('Ingrese su nota'))
 
-if (nro>=0 && nro<=10){
-    if(nro>=0 && nro<=2){
+while (nro>10){
+    console.log('Ingrese de nuevo su nota', nro);
+    document.write('Ingrese de nuevo su nota');
+}
+
+if(nro>=0 && nro<=10){
+ if(nro>=0 && nro<=2){
     alert('Su nota es muy deficiente'); 
-} else if(nro>=3 ||  nro<5){
+} else if(nro>2 &&  nro<6){
     alert('Su nota es muy insuficiente');
-} else if(nro=5 || nro<=6){
+} else if(nro>4 && nro<7){
      alert('Su nota es suficiente');
 }else if(nro=7){
     alert('Su nota es bien');
-}else if(nro=8 || nro<=9){
+}else if(nro>7 && nro<10){
     alert('Su nota es notable');
 }else if(nro=10){
     alert('Su nota es sobresaliente');
 }
-}else if (nro>10){
-    console.log('Mensaje erroneo');
-    while (nro>10)
-    console.log('Ingrese numero correcto');
 }
-     
+
