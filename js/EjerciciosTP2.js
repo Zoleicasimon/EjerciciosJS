@@ -24,12 +24,18 @@ Si ingreso un número que no esté dentro del rango de 0 a 10 mostrar un mensaje
 
  
 
-let nro=parseInt(prompt('Ingrese su nota'))
+let nro;
 
-while (nro>10){
-    console.log('Ingrese de nuevo su nota', nro);
-    document.write('Ingrese de nuevo su nota');
-}
+do {
+    nro = parseInt(prompt('Ingrese su nota'));
+    
+
+    if (nro>10) {
+        alert('Introduce un número válido');
+        
+    }
+
+   } while (nro>10) ;
 
 if(nro>=0 && nro<=10){
  if(nro>=0 && nro<=2){
@@ -38,9 +44,9 @@ if(nro>=0 && nro<=10){
     alert('Su nota es muy insuficiente');
 } else if(nro>4 && nro<7){
      alert('Su nota es suficiente');
-}else if(nro=7){
+}else if(nro>6 && nro<8){
     alert('Su nota es bien');
-}else if(nro>7 && nro<10){
+}else if(nro>7 && nro<=9){
     alert('Su nota es notable');
 }else if(nro=10){
     alert('Su nota es sobresaliente');
