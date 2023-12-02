@@ -1,6 +1,6 @@
 console.log('Estamos en EJERCICIOS TP2')
 
-//1- Escribir un programa que solicite la edad y si es mayor de 18 años mostrar un mensaje que ya puede conducir, si la edad ingresada no es un número válido indicarlo en un mensaje.
+/*//1- Escribir un programa que solicite la edad y si es mayor de 18 años mostrar un mensaje que ya puede conducir, si la edad ingresada no es un número válido indicarlo en un mensaje.
 let edad=parseInt(prompt('Ingrese su edad'))
 
 if (edad>18){
@@ -20,21 +20,16 @@ if (edad>18){
 8-9: Notable
 10: Sobresaliente
 
-Si ingreso un número que no esté dentro del rango de 0 a 10 mostrar un mensaje de “número erróneo”. Si el número ingresado no es válido mostrar el mensaje “Introduce un número válido”.*/
-
- 
+Si ingreso un número que no esté dentro del rango de 0 a 10 mostrar un mensaje de “número erróneo”. Si el número ingresado no es válido mostrar el mensaje “Introduce un número válido”.
 
 let nro;
 
 do {
     nro = parseInt(prompt('Ingrese su nota'));
     
-
     if (nro>10) {
         alert('Introduce un número válido');
-        
     }
-
    } while (nro>10) ;
 
 if(nro>=0 && nro<=10){
@@ -51,5 +46,67 @@ if(nro>=0 && nro<=10){
 }else if(nro=10){
     alert('Su nota es sobresaliente');
 }
-}
+}*/
 
+//3- Realiza un script que pida cadenas de texto  hasta que se pulse “cancelar”. Al salir con “cancelar” deben mostrarse todas las cadenas concatenadas con un guión -.
+
+
+/*let cadenaTexto;
+let continuation;
+let textoConcatenado=('');
+
+
+do {
+cadenaTexto=prompt('Ingrese una oracion');
+continuation=prompt('¿Desea continuar? true or false');
+textoConcatenado+=' '+cadenaTexto;
+}
+while (continuation==='true');
+
+if(continuation!=='true'){
+console.log('Su cadena de texto es: ', textoConcatenado);
+document.write('</br>'+'Su cadena de texto es: ', textoConcatenado);
+}*/
+
+/*//otra opcion
+let cadenaTexto1;
+let continuation1;
+let textoConcatenado1=('');
+
+do {
+    cadenaTexto1=prompt('Ingrese una oracion');
+    continuation1=confirm("Quiere ingresar otro texto")
+    textoConcatenado1+=' '+cadenaTexto1;
+    }
+    while (continuation1===true);
+    
+    if(!continuation1){
+    document.write('su cadena de texto es: ', textoConcatenado1);    
+    }*/
+    
+//4 Realiza un script que pida números hasta que se pulse “cancelar”. Si no es un número deberá indicarse con un «alert» y seguir pidiendo números. Al salir con “cancelar” deberá indicarse la suma total de los números introducidos.
+
+let numero;
+let suma=0;
+let respuesta;
+
+do {
+ numero=parseInt(prompt('Ingrese un numero'));
+ 
+ while (isNaN(numero)===true){ 
+    alert('¡Error! Por favor, ingrese un número válido');
+    numero=parseInt(prompt('Ingrese un numero'));
+}  
+
+ if (isNaN(numero)===false){
+ suma=suma+numero; 
+ respuesta=confirm('¿Desea continuar?');
+
+ }
+
+}while(respuesta===true);
+
+if(!respuesta){
+    console.log('La suma total es: ', suma);
+    document.write('La suma total es: ', suma);
+};
