@@ -171,14 +171,51 @@ for (i = 1; i <= 30; i++) {
 /*7. 7- Haz un script que escriba una pirámide inversa de los números del 1 al número que indique el usuario (no mayor de 50)  de la siguiente forma : (suponiendo que indica 30)*/
 
 
-let nro=parseInt(prompt('Ingrese un numero'));
+/*let nro=parseInt(prompt('Ingrese un numero'));
 let i,j;
 
+
+while(nro>=30){
+    alert('Su numero se excede al valor requerido');
+    nro=parseInt(prompt('Ingrese un numero'));
+}
+   
 for (i=nro; i>=1; i--){
     for(j=0; j<i; j++){
-        console.log(nro);
+        console.log(i);
         document.write(i);
     }
 
     document.write('</br>');
 }
+*/
+//8- Crea script para generar pirámide siguiente con los números del 1 al número que indique el usuario (no mayor de 50) 
+
+/*let nro1=parseInt(prompt('Ingrese un numero'));
+let cadena=''
+let suma=0
+while(nro1>=50) {
+    alert('Su numero se excede al valor requerido');
+    nro1=parseInt(prompt('Ingrese un numero'));
+}
+
+do {
+    document.write(cadena+=(suma=suma+1));
+    document.write('</br>');
+}while(suma<nro1);*/
+
+//9. Crea un script que escriba los números del 1 al 500, que indique cuáles son múltiplos de 4 y de 9 y que cada 5 líneas muestre una línea horizontal. Por ejemplo :
+
+let suma=0;
+
+do {
+    document.write(suma=suma+1);
+    if(suma%5===0){
+        document.write('</br>'+'------------------');
+    }else if(suma%4===0){
+        document.write(' el numero es multiplo de 4');
+    }else if(suma%9===0){
+        document.write(' el numero es multiplo de 9');
+    }
+    document.write('</br/>');
+}while(suma<500);
