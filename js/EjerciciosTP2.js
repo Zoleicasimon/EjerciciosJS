@@ -59,7 +59,8 @@ let textoConcatenado=('');
 do {
 cadenaTexto=prompt('Ingrese una oracion');
 continuation=prompt('¿Desea continuar? true or false');
-textoConcatenado+=' '+cadenaTexto;
+
+textoConcatenado+=' '+cadenaTexto+ '-';
 }
 while (continuation==='true');
 
@@ -68,7 +69,8 @@ console.log('Su cadena de texto es: ', textoConcatenado);
 document.write('</br>'+'Su cadena de texto es: ', textoConcatenado);
 }*/
 
-/*//otra opcion
+/*otra opcion*/
+
 let cadenaTexto1;
 let continuation1;
 let textoConcatenado1=('');
@@ -76,13 +78,13 @@ let textoConcatenado1=('');
 do {
     cadenaTexto1=prompt('Ingrese una oracion');
     continuation1=confirm("Quiere ingresar otro texto")
-    textoConcatenado1+=' '+cadenaTexto1;
+    textoConcatenado1+=' '+cadenaTexto1+'-';
     }
     while (continuation1===true);
     
-    if(!continuation1){
-    document.write('su cadena de texto es: ', textoConcatenado1);    
-    }*/
+    if(continuation1===false){
+    document.write('su cadena de texto es: ', textoConcatenado1.slice(0,-1));    
+    }
     
 //4 Realiza un script que pida números hasta que se pulse “cancelar”. Si no es un número deberá indicarse con un «alert» y seguir pidiendo números. Al salir con “cancelar” deberá indicarse la suma total de los números introducidos.
 
@@ -280,7 +282,7 @@ console.log(maxima);*/
 
 //12. Realiza un script que genere un número aleatorio entre 1 y 99
 
-let aleatorio=Math.ceil(Math.random() * (100 - 0));
+/*let aleatorio=Math.ceil(Math.random() * (100 - 0));
 
 console.log(aleatorio);
 
@@ -333,7 +335,7 @@ for(index2=longitud3-1; index2>=0; index2--){
 
 //17- Realiza un script que muestre la posición de la primera vocal de un texto introducido por teclado.
 
-let texto = prompt('Ingrese tu texto');
+/*let texto = prompt('Ingrese tu texto');
 let posicion;
 
 for (let i = 0; i < texto.length; i++) {
@@ -346,4 +348,4 @@ for (let i = 0; i < texto.length; i++) {
 }
 
 
-    console.log('La primera vocal está en la posición: ' + posicion);
+    console.log('La primera vocal está en la posición: ' + posicion);*/
