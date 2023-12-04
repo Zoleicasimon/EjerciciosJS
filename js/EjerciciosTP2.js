@@ -206,7 +206,7 @@ do {
 
 //9. Crea un script que escriba los números del 1 al 500, que indique cuáles son múltiplos de 4 y de 9 y que cada 5 líneas muestre una línea horizontal. Por ejemplo :
 
-let suma=0;
+/*let suma=0;
 
 do {
     document.write(suma=suma+1);
@@ -218,4 +218,132 @@ do {
         document.write(' el numero es multiplo de 9');
     }
     document.write('</br/>');
-}while(suma<500);
+}while(suma<500);*/
+
+//10. Realiza un script que pida número de filas y columnas y escriba una tabla. Dentro de cada una de las celdas deberá escribirse un número consecutivo en orden descendente. Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1.
+
+/*let filas=parseInt(prompt('Ingrese el numero de filas'));
+let columnas=parseInt(prompt('Ingrese el numero de columnas'));
+let tamanoTabla=(filas*columnas);
+let i,j,k
+
+for(i=0; i<filas; i++){
+    
+    for(j=0; j<columnas; j++){
+        document.write( tamanoTabla--, '|');
+    
+    }
+       document.write('</br>');
+   }*/
+
+   /*let filas = parseInt(prompt('Ingrese el número de filas'));
+   let columnas = parseInt(prompt('Ingrese el número de columnas'));
+   let tamanoTabla = filas * columnas;
+   let i, j;
+   
+   document.write('<table>');
+   
+   for (i = 0; i <filas; i++) {
+       document.write('<tr>');
+       
+       for (j = 0; j < columnas; j++) {
+           document.write('<td>' + tamanoTabla-- + '</td>');
+       }
+   
+       document.write('</tr>');
+   }
+   
+   document.write('</table>');*/
+
+
+//11- Realiza un script que pida por teclado 3 edades y 3 nombres e indique el nombre del mayor. *
+
+/*let contador=0;
+let arrayEdad=[];
+let arrayNombre=[];
+do{
+    let edad=parseInt(prompt('Ingrese su edad'));
+    let nombre=prompt('Ingrese su nombre');
+    arrayEdad.push(edad);
+    arrayNombre.push(nombre);
+    contador++;
+}while(contador<3);
+
+let maxima=Math.max(...arrayEdad);
+let position=arrayEdad.indexOf(maxima);
+
+
+document.write('La persona con mayor edad es:', arrayNombre[position], 'y tiene', maxima);
+console.log(arrayEdad);
+console.log(arrayNombre);
+console.log(maxima);*/
+
+//12. Realiza un script que genere un número aleatorio entre 1 y 99
+
+let aleatorio=Math.ceil(Math.random() * (100 - 0));
+
+console.log(aleatorio);
+
+//13. Realiza un script que pida un texto y lo muestre en mayúsculas.
+/*let texto=prompt('Ingrese un texto');
+let mayuscula=texto.toUpperCase();
+
+document.write('Su texto en mayuscula es: ', mayuscula);*/
+
+//14. Realiza un script que pida una cadena de texto y lo muestre poniendo el signo – entre cada carácter sin usar el método replace. Por ejemplo, si tecleo “hola qué tal”, deberá salir “h-o-l-a- -q-u-e- -t-a-l”.
+
+/*let oracion=prompt('Ingrese su oracion');
+let longitud=oracion.length;
+let i;
+let cadena='';
+
+for(i=0; i<longitud; i++){
+    let subcadena=oracion.charAt(i);
+    document.write(subcadena, ' - ',);
+}*/
+
+//15. Realiza un script que cuente el número de vocales que tiene un texto.
+
+/*let texto2=prompt('Ingrese un texto');
+let longitud2=texto2.length;
+let index;
+let contador=0;
+
+for(index=0; index<longitud2; index++){
+let vocal=texto2.charAt(index);
+if (vocal==='a' ||  vocal==='e' || vocal==='i' || vocal==='o' || vocal==='u'){
+    contador=contador+1;
+    console.log(contador);
+}
+
+}
+document.write('El numero de vocales que tiene su oracion', texto2, ' son: ' , contador);*/
+
+//16. Realiza un script que pida una cadena de texto y la devuelva al revés. Es decir, si tecleo “hola que tal” deberá mostrar “lat euq aloh”
+
+/*let texto3=prompt('Ingrese su texto');
+let longitud3=texto3.length;
+let index2;
+
+for(index2=longitud3-1; index2>=0; index2--){
+    let letra=texto3.charAt(index2);
+    document.write(letra);
+}*/
+  
+
+//17- Realiza un script que muestre la posición de la primera vocal de un texto introducido por teclado.
+
+let texto = prompt('Ingrese tu texto');
+let posicion;
+
+for (let i = 0; i < texto.length; i++) {
+    let caracter = texto.charAt(i); // Convertir a minúscula para hacer la comparación sin distinción de mayúsculas/minúsculas
+
+    if ('aeiou'.includes(caracter)) {
+        posicion = i + 1; // Sumar 1 porque las posiciones comienzan desde 1 en lugar de 0
+        break; // Salir del bucle cuando se encuentra la primera vocal
+    }
+}
+
+
+    console.log('La primera vocal está en la posición: ' + posicion);
