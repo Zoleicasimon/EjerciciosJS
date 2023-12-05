@@ -3,9 +3,17 @@ table {
     border-collapse: collapse;
     width: 50%;
     margin-top: 20px;
+    background-color: blanchedalmond;
 }
 
-th, td {
+th{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: tomato;
+}
+
+td{
     border: 1px solid black;
     padding: 8px;
     text-align: center;

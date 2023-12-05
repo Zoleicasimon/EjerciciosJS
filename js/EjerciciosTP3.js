@@ -62,7 +62,7 @@ document.write('<li>' + 'El elemento 1era posicion: ,',array[0] + '</li>',
 
 //Escribir un script que simule el lanzamiento de dos dados. Hacer uso de la función Math.random para obtener números aleatorios entre 1 y 6 para cada uno de los lanzamientos de los dados. Sumar el resultado de lanzar dos dados y anotar en un array el número de apariciones de dicha suma, repitiendo 50 veces esta operación.
 
-let nroDado1,nroDado2;
+/*let nroDado1,nroDado2;
 let cantidad=0;
 let i,j,suma;
 let array=[];
@@ -81,8 +81,8 @@ let valor12=0;
 
 
 for(i=0; i<50; i++){
-    nroDado1=Math.ceil(Math.random()*(6-1));
-    nroDado2=Math.ceil(Math.random()*(6-1));
+    nroDado1=Math.ceil(Math.random()*6);
+    nroDado2=Math.ceil(Math.random()*6);
     suma=nroDado1+nroDado2;
     array.push(suma);
     cantidad=cantidad+1;
@@ -143,9 +143,9 @@ if(array[j]===12){
 }
 
 
-document.write('<table>')
-;
-document.write('<thead>')
+
+document.write('<table>');
+document.write('<thead>');
 document.write('<tr>');
 document.write('<th>'+'SUMA_DADOS'+'</th>')
 document.write('<th>'+'VECES_REPETIDAS'+'</th>')
@@ -220,4 +220,68 @@ document.write('</tr>');
 
 
 document.write('</tbody>');
+
+
+
+//me tiraba chat gtp pero no entendi
+/*let nroDado1, nroDado2;
+let array = [];
+let valores = new Array(11).fill(0);
+
+
+for (let i = 0; i < 50; i++) {
+    nroDado1 = Math.ceil(Math.random() * 6);
+    nroDado2 = Math.ceil(Math.random() * 6);
+    let suma = nroDado1 + nroDado2;
+    array.push(suma);
+    valores[suma - 2]++;
+}
+
+let tablaResultados = document.getElementById('resultados').getElementsByTagName('tbody')[0];
+
+for (let i = 2; i <= 12; i++) {
+    let fila = tablaResultados.insertRow();
+    let celdaSuma = fila.insertCell(0);
+    let celdaApariciones = fila.insertCell(1);
+
+    celdaSuma.textContent = i;
+    celdaApariciones.textContent = valores[i - 2];
+}*/
+
+//4.Escribir el código de una función a la que se pasa como parámetro un número entero y devuelve como resultado una cadena de texto que indica si el número es par o impar. Mostrar por pantalla el resultado devuelto por la función.
+
+/*let parametro = parseInt(prompt('Ingrese un numero'));
+parImpar(parametro);
+
+function parImpar(parametro) {
+    if (parametro % 2 === 0) {
+        document.write('El número es par');
+    } else {
+        document.write('El número es impar');
+    }
+}*/
+
+//5. Definir una función que muestre información sobre una cadena de texto que se le pasa como argumento. A partir de la cadena que se le pasa, la función determina si esa cadena está formada sólo por mayúsculas, sólo por minúsculas o por una mezcla de ambas.
+
+
+do{
+    let texto=prompt('Ingrese su texto');
+    cadenatexto(texto);
+    confirmacion=confirm('¿Quiere averiguar otra palabra?')
+    
+}while(confirmacion===true)
+
+
+function cadenatexto(texto){
+    if(/^[A-Z]+$/.test(texto)){
+ console.log('Texto tiene mayuscula');   
+}else
+    if(/^[a-z]+$/.test(texto)){
+     console.log('Texto tiene minuscula')
+}else 
+    if(/[a-z]/.test(texto) && /[A-Z]/.test(texto))
+    console.log('Texto tiene mayusculas y minuscula')
+return;
+}
+
 
