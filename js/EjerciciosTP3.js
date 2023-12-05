@@ -264,14 +264,14 @@ function parImpar(parametro) {
 //5. Definir una función que muestre información sobre una cadena de texto que se le pasa como argumento. A partir de la cadena que se le pasa, la función determina si esa cadena está formada sólo por mayúsculas, sólo por minúsculas o por una mezcla de ambas.
 
 
-do{
+/*do{
     let texto=prompt('Ingrese su texto');
     cadenatexto(texto);
     confirmacion=confirm('¿Quiere averiguar otra palabra?')
-    
+
 }while(confirmacion===true)
 
-
+//FUNCION EXPRESION REGULAR
 function cadenatexto(texto){
     if(/^[A-Z]+$/.test(texto)){
  console.log('Texto tiene mayuscula');   
@@ -283,5 +283,34 @@ function cadenatexto(texto){
     console.log('Texto tiene mayusculas y minuscula')
 return;
 }
+*/
 
+//6.  Solicitar por pantalla al usuario ingresar el valor de los lados de un rectángulo, luego crear una función para calcular su perímetro y mostrarlo por pantalla.
+
+//La fórmula del perímetro  es p = 2*(a +b)
+
+
+/*do{
+    let ladoCorto=parseInt(prompt('Ingrese el valor de los segmentos mas cortos del rectangulo'));
+    let ladoLargo=parseInt(prompt('Ingrese el valor de los segmentos mas largos del rectangulo'));
+    
+    let resultado=perimetroRectangulo(ladoCorto,ladoLargo)
+    document.write('</br>'+'el perimetro de su rectangulo es: ', resultado);
+
+    confirmacion=confirm('¿Quiere averiguar otro perimetro?');
+
+}while(confirmacion===true)
+
+
+
+function perimetroRectangulo(ladoCorto,ladoLargo){
+   return perimetro=(2*(ladoCorto +ladoLargo));
+}*/
+
+//7. Escriba un script que muestre la tabla de multiplicar de un número ingresado por pantalla, la creación de la tabla debe ser realizada con una función y mostrar solo los resultados del 1 al 10 del número elegido por el usuario.
+
+let numero=parseInt(prompt('Ingrese un numero cuya tabla de multiplicar desee conocer'));
+
+function multiplicarTabla(numero){
+}
 
