@@ -304,13 +304,26 @@ return;
 
 
 function perimetroRectangulo(ladoCorto,ladoLargo){
-   return perimetro=(2*(ladoCorto +ladoLargo));
-}*/
+   return perimetro=(2*(ladoCorto +ladoLargo));*/
+
 
 //7. Escriba un script que muestre la tabla de multiplicar de un número ingresado por pantalla, la creación de la tabla debe ser realizada con una función y mostrar solo los resultados del 1 al 10 del número elegido por el usuario.
 
 let numero=parseInt(prompt('Ingrese un numero cuya tabla de multiplicar desee conocer'));
+multiplicarTabla(numero);
+
 
 function multiplicarTabla(numero){
-}
+let i;
+let resultado
+    for (i=0; i<=10; i++){
+    document.write('<table>');    
+    document.write('<tr>');
+    document.write('<td>' + numero, 'X', i, '</td>');
+    document.write('<td>' +(numero*i) + '</td>'); 
+    document.write('<tr>');
+    document.write('</table>'); 
+}  
+    
 
+}
