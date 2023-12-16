@@ -245,6 +245,7 @@ class Person{
    persona1.mostrarGeneracion();
   // persona1.mostrarDatos();  
 
+
   /*6- Crear una clase Libro que contenga al menos las siguientes propiedades:
 ISBN
 Título
@@ -267,4 +268,59 @@ class Libro{
         this.autor=autor;
         this.numeroDePag=numeroDePag;
     }
+
+  get ISBN(){
+    return this.isbn;
+  }
+
+  set ISBN(newisbn){
+    this.isbn=newisbn;
+  }
+
+  get TITULO(){
+    return this.titulo;
+  }
+
+  set TITULO(newtitulo){
+    this.titulo=newtitulo;
+  }
+
+  get AUTOR(){
+    return this.autor;
+  }
+
+  set AUTOR(newautor){
+    this.autor=newautor;
+  }
+
+  get PAGINA(){
+    return this.numeroDePag;
+  }
+
+  set PAGINA(newnumeroDePag){
+    this.numeroDePag=newnumeroDePag;
+  }
+
+ mostrarInformacion(){
+    console.log(`El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene páginas  ${this.numeroDePag}`)
+ }
+
+}
+
+
+
+const Libro1=new Libro(123,'Biodiversidad', 'Zoleica', 300);
+Libro1.mostrarInformacion();
+/*Libro1.AUTOR='Juan';
+console.log(Libro1.AUTOR);
+Libro1.mostrarInformacion();*/
+
+const Libro2=new Libro(234,'Biologia', 'Rodrigo', 500);
+Libro2.mostrarInformacion();
+
+
+if(Libro1.numeroDePag>Libro2.numeroDePag){
+    console.log(`El libro1 tiene mas numero de pagina ${Libro1.numeroDePag}`)
+}else if (Libro1.numeroDePag<Libro2.numeroDePag){
+    console.log(`El libro2 tiene mas numero de pagina ${Libro2.numeroDePag}`)
 }
