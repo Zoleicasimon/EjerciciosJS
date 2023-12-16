@@ -142,3 +142,129 @@ miRectangulo2.mostrarPropiedades();
 console.log('Área:', miRectangulo2.area());
 console.log('Perímetro:', miRectangulo2.perimetro());*/
 
+//4. Escribe una clase Producto para crear objetos. Estos objetos, deben presentar las propiedades código, nombre y precio, además del método imprime datos, el cual escribe por pantalla los valores de sus propiedades.
+//Posteriormente, cree tres instancias de este objeto y guárdalas en un array.
+//Por último, utilice el método imprime datos para mostrar por pantalla los valores de los tres objetos instanciados.
+
+
+class Productos{
+    constructor(codigo,nombre, precio){
+        this.codigo=codigo || 1;
+        this.nombre=nombre || 'A';
+        this.precio=precio || 1;
+    }
+
+    imprimirDatos(){
+        console.log(`El producto codigo : ${this.codigo}, es un:   ${this.nombre}, cuyo precio es: ${this.precio}`)
+    };
+    }
+
+  const Producto1=new Productos(1, 'Televisor', 100000);
+  Producto1.imprimirDatos();
+
+ const array=[new Productos(1, 'Televisor', 100000), 
+              new Productos(2, 'Televisor', 100020),
+              new Productos(3, 'Televisor', 100300)];
+            
+ console.log(array.length);
+
+ //1 forma de recorrer array de objetos
+ /*for (const Productos of array) {
+    Productos.imprimirDatos();
+};*/
+
+//2 forma de recorrer bucle de objetos
+for(i=0; i<array.length; i++){
+array[i].imprimirDatos();
+}
+
+
+/*Crea una clase llamada Persona que siga las siguientes condiciones:
+Sus propiedades son: nombre, edad, DNI, sexo (H hombre, M mujer), peso y altura, año de nacimiento. Si quieres añadir alguna propiedad extra puedes hacerlo.
+Los métodos que se debe poder utilizar  son:
+mostrarGeneracion: este método debe mostrar un mensaje indicando a qué generación pertenece la persona creada y cual es el rasgo característico de esta generación.
+Para realizar este método tener en cuenta la siguiente tabla de generaciones*/
+
+
+class Person{
+    constructor(nombre, edad, dni,sexo, peso, altura, añoNacimiento){
+        this.nombre=nombre || null;
+        this.añoNacimiento=añoNacimiento|| 1;
+        this.edad=edad ||1;
+        this.dni=dni||1;  
+        this.sexo= sexo || null ;
+        this.peso= peso || 1;
+        this.altura=altura ||1;
+        
+    }
+
+
+    mostrarGeneracion(añoNacimiento){
+        let generacion='';
+
+        if(this.añoNacimiento>=1994 && this.añoNacimiento<=2010){
+           generacion='Pertenece a la generación z: IRREVERENCIA';
+        }else if(this.añoNacimiento>=1981 &&  this.añoNacimiento<=1993){
+            generacion='Pertene a la generacion Y milennia: FRUSTRACION';
+        }else if(this.añoNacimiento>=1969 && this.añoNacimiento<=1989){
+          generacion='Pertene a la generacion X: OBSESION POR EL EXITO';
+        }else if(this.añoNacimiento>=1949 &&  this.añoNacimiento<=1968){
+           generacion='Pertene a la Baby Boom: AMBICION';
+        }else if(this.añoNacimiento>=1930 && this.añoNacimiento<=1948){
+           generacion='Pertene a la generacion Silent Generation: AUSTERIDAD';
+        }else{
+                generacion='Su fecha no aparece';
+            }
+       return generacion
+}
+   esMayorDeEdad(edad){
+    let mayorEdad=''
+    if(this.edad>18){
+        mayorEdad='Usted es mayor de edad'}
+        else {
+           mayorEdad='Usted es menor de edad';
+        }
+        return console.log (mayorEdad);
+    }
+
+
+    generarDNI() {
+        this.dni = Math.floor(Math.random() * 1000000000) + 100000000;
+        console.log('Su dni es: ', this.dni);
+    }
+
+    mostrarDatos(){
+        console.log(`A continuacion se muestra su informacion: su nombre es: ${this.nombre}, cuyo dni es ${this.dni}, tiene ${this.edad} años, por lo que, ${this.esMayorDeEdad()} es de sexo ${this.sexo}, su año de nacimiento es en ${this.añoNacimiento} por lo que ${this.mostrarGeneracion()}, y su altura y peso son ${this.altura} y ${this.peso} respectivamente`)
+    }
+   }
+    
+   const persona1=new Person('Zoleica', 14, null, 'femenino', 54, 154, 1989);
+   persona1.esMayorDeEdad();
+   persona1.generarDNI();
+   persona1.esMayorDeEdad();
+   persona1.mostrarGeneracion();
+  // persona1.mostrarDatos();  
+
+  /*6- Crear una clase Libro que contenga al menos las siguientes propiedades:
+ISBN
+Título
+Autor
+Número de páginas
+
+Crear sus respectivos métodos get y set correspondientes para cada propiedad. Crear el método mostrarLibro() para mostrar la información relativa al libro con el siguiente formato:
+
+“El libro xxx con ISBN xxx creado por el autor xxx tiene páginas xxx”
+
+Crear al menos 2 objetos libros y utilizar el método mostrarLibro();
+Por último, indicar cuál de los 2 objetos “libros” tiene más páginas*/
+
+
+
+class Libro{
+    constructor(isbn, titulo, autor, numeroDePag){
+        this.isbn=isbn;
+        this.titulo=titulo;
+        this.autor=autor;
+        this.numeroDePag=numeroDePag;
+    }
+}
