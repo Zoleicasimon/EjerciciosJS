@@ -97,7 +97,7 @@ do {
 
 //3. Escribe una clase que permita crear distintos objetos “rectángulos”, con las propiedades de alto y ancho, mas los métodos necesarios para modificar y mostrar sus propiedades, calcular el perímetro y el área
 
-class DistintosRectangulos {
+/*class DistintosRectangulos {
     constructor(alto, ancho) {
         this.alto = alto || 2; //si coloco igual a 2 siempre se imprime y calcula todo en base a ese valor
         this.ancho =ancho|| 10;
@@ -243,7 +243,6 @@ class Person{
    persona1.generarDNI();
    persona1.esMayorDeEdad();
    persona1.mostrarGeneracion();
-  // persona1.mostrarDatos();  
 
 
   /*6- Crear una clase Libro que contenga al menos las siguientes propiedades:
@@ -305,15 +304,75 @@ class Libro{
     console.log(`El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene páginas  ${this.numeroDePag}`)
  }
 
+
+ 
+}
+
+class biblioteca{
+    constructor(){
+        this.repositorio=[];
+    }
+
+agregarLibro(libro){
+    this.repositorio.push(libro);
+    console.log('Agrego su libro correctamente');
+}    
+
+masHojas() {
+    if (this.repositorio.length === 0) {
+        console.log('La biblioteca está vacía.');
+    } else if (this.repositorio.length === 1) {
+        console.log('Solo ingresó un libro, ingrese otro para comparar.');
+    } else {
+        let libroConMasPaginas = this.repositorio[0].numeroDePag;
+
+        for (let i = 1; i < this.repositorio.length; i++) {
+            if (this.repositorio[i].numeroDePag > libroConMasPaginas) {
+                libroConMasPaginas = this.repositorio[i];
+            }
+        }
+        console.log(`El libro con mas paginas es: ${libroConMasPaginas.titulo} y tiene ${libroConMasPaginas.numeroDePag} paginas`);
+    }
+}
+    mostrarInformacion(){
+        let src=''
+        for (let i = 0; i < this.repositorio.length; i++) {
+        src+=this.repositorio[i];
+        return src
+       ;
+  }
+  }
+  mostrarInformacion() {
+    for (let i = 0; i < this.repositorio.length; i++) {
+        let libros = this.repositorio[i];
+        console.log(libros.mostrarInformacion());
+    }
+}
 }
 
 
+const PrimerLibro=new biblioteca;
 
-const Libro1=new Libro(123,'Biodiversidad', 'Zoleica', 300);
-Libro1.mostrarInformacion();
+do {
+    let listaFinal;
+    let isbn1 = parseInt(prompt('Ingrese el ISBN'));
+    let titulo1 = prompt('Ingrese el titulo');
+    let autor1 = prompt('Ingrese el autor');
+    let numeroDePag1 = parseInt(prompt('Ingrese la cantidad de paginas'));
+    const Libros = new Libro(isbn1, titulo1, autor1, numeroDePag1);
+    PrimerLibro.agregarLibro(Libros);
+    Libros.mostrarInformacion();
+
+
+} while (confirm('Quiere ingresar otro libro?'));
+
+PrimerLibro.mostrarInformacion();
+PrimerLibro.masHojas();
+
+;
 /*Libro1.AUTOR='Juan';
 console.log(Libro1.AUTOR);
-Libro1.mostrarInformacion();*/
+Libro1.mostrarInformacion()
 
 const Libro2=new Libro(234,'Biologia', 'Rodrigo', 500);
 Libro2.mostrarInformacion();
@@ -323,4 +382,203 @@ if(Libro1.numeroDePag>Libro2.numeroDePag){
     console.log(`El libro1 tiene mas numero de pagina ${Libro1.numeroDePag}`)
 }else if (Libro1.numeroDePag<Libro2.numeroDePag){
     console.log(`El libro2 tiene mas numero de pagina ${Libro2.numeroDePag}`)
+}*/
+/*User
+class Persona {
+  constructor(nombre, apellido, dni) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.dni = dni;
+  }
+
+  mostrarInformacion() {
+    return `Nombre: ${this.nombre}, Apellido: ${this.apellido}, DNI: ${this.dni}`;
+  }
 }
+
+class Mentor extends Persona {
+  constructor(nombre, apellido, dni, materia) {
+    super(nombre, apellido, dni);
+    this.materia = materia;
+    this.rol = "Mentor";
+  }
+
+  mostrarInformacion() {
+    return `Rol: ${this.rol}, Apellido: ${this.apellido}, Nombre: ${this.nombre}, DNI: ${this.dni}, Materia: ${this.materia}`;
+  }
+}
+
+class Alumno extends Persona {
+  constructor(nombre, apellido, dni, curso, becado) {
+    super(nombre, apellido, dni);
+    this.rol = "Alumno";
+    this.curso = curso;
+    this.becado = becado;
+  }
+
+  mostrarInformacion() {
+    return `Rol: ${this.rol}, Becado: ${this.becado}, Apellido: ${this.apellido}, Nombre: ${this.nombre}, DNI: ${this.dni}, Curso: ${this.curso}`;
+  }
+}
+
+class Sistema {
+  constructor() {
+    /*const lsValue=localStorage.getItem('almacenamiento');
+    if (lsValue!==null) {
+      const array=JSON.parse(lsValue);
+      this.almacenamiento = array;
+      console.log(this.almacenamiento);
+    }else{
+      this.almacenamiento=[]
+    }
+    this.almacenamiento=JSON.parse(localStorage.getItem('almacenamiento')) || [];
+  
+  existeUsuario(usuario) {
+    const exist = this.almacenamiento.find(
+      (element) => element.dni === usuario.dni
+    );
+    if (exist !== undefined) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  existeUsuarioPorDNI(dni){
+    const prueba=(element)=>element.dni===dni;
+    const exist=this.almacenamiento.some(prueba);
+    return exist;
+  }
+
+  crearMentor(mentor) {
+    if (this.existeUsuario(mentor)) {
+      console.log("El usuario ya existe");
+    } else {
+      this.almacenamiento.push(mentor);
+      console.log('Exito se creo el registro');
+    }
+  }
+
+  crearAlumno(alumno) {
+    if (this.existeUsuario(alumno)) {
+      console.log("El usuario ya existe");
+    } else {
+      this.almacenamiento.push(alumno);
+      console.log('Exito se creo el registro');
+    }
+  };
+
+  mostrarInformacion(object){
+    let str='';
+    for (const key in object) {
+     str+=` ${key.toUpperCase()}: ${object[key]} `
+    }
+    return str;
+  }
+
+  listarTodo(){
+    if (this.almacenamiento.length===0) {
+        console.log('Aun no existen registros');
+    }else{        
+        this.almacenamiento.forEach((element, index)=>{
+            //console.log(`${index+1}: ${element.mostrarInformacion()}`);
+            console.log(`${index+1}: ${this.mostrarInformacion(element)}`);
+        });
+    }
+  };
+
+  listarMentor(){
+    const mentores=this.almacenamiento.filter((element)=>element.rol==='Mentor');
+    if (mentores.length>0) {
+        mentores.forEach((element, index)=>{
+            console.log(`${index+1}: ${this.mostrarInformacion(element)}`);
+        })
+    }else{
+        console.log('Aun no hay registros de MENTORES');
+    }
+  };
+
+  listarAlumnos(){
+    const alumnos=this.almacenamiento.filter((element)=>element.rol==='Alumno');
+    if (alumnos.length>0) {
+        alumnos.forEach((element, index)=>{
+            console.log(`${index+1}: ${this.mostrarInformacion(element)}`);
+        })
+    }else{
+        console.log('Aun no hay registros de ALUMNOS');
+    }
+  };
+
+
+  eliminarRegistro(dni){
+    const almacenamientoActualizado=this.almacenamiento.filter((element)=>element.dni!==dni);
+    if (almacenamientoActualizado.length>0) {
+      this.almacenamiento=almacenamientoActualizado;  
+    }
+    
+  }
+
+
+
+
+};
+
+
+const system=new Sistema();
+
+do {
+    let opcion=parseInt(prompt('Seleccione una opcion, 1-CREAR MENTOR, 2-CREAR ALUMNO, 3-LISTAR TODO, 4-LISTAR MENTORES, 5-LISTAR ALUMNOS, 6-ELIMINAR UN RESGISTRO'));
+
+    switch (opcion) {
+        case 1:
+            let nombreM=prompt('Ingrese el nombre');
+            let apellidoM=prompt('Ingrese el apellido');
+            let dniM=prompt('Ingrese el dni');
+            let materiaM=prompt('Ingrese la materia');
+            const mentor=new Mentor(nombreM, apellidoM, dniM, materiaM);
+            system.crearMentor(mentor);
+            break;
+        case 2:
+            let nombreA=prompt('Ingrese el nombre');
+            let apellidoA=prompt('Ingrese el apellido');
+            let dniA=prompt('Ingrese el dni');
+            let cursoA=prompt('Ingrese el curso');
+            let becadoA=confirm('Es becado si es si seleccione aceptar caso contrario cancelar');
+            const alumno=new Alumno(nombreA, apellidoA, dniA, cursoA, becadoA);
+            system.crearAlumno(alumno);
+            break;
+        case 3:
+            system.listarTodo();
+            break;
+        case 4:
+            system.listarMentor();
+          break;    
+        case 5:
+          system.listarAlumnos();
+          break;
+
+        case 6:
+          let dniBuscado=prompt('Por favor ingrese el DNI del registro que desea eliminar');
+          const resultadoBusqueda=system.existeUsuarioPorDNI(dniBuscado);
+          if (resultadoBusqueda) {
+            const eleccionUsuario=confirm('¿Esta seguro de eliminar el registro?');
+            if (eleccionUsuario) {
+              system.eliminarRegistro(dniBuscado);
+              console.log('Exito se elimino el registro deseado!');
+            }
+          } else {
+            console.log('No se encontro el usuario.');
+          }
+          
+
+          break;
+        default:
+            console.error(`OPCION INGRESADA INVALIDA: INGRESO--> ${opcion}`);
+            break;
+    }
+} while (confirm('¿Desea continuar operando?'));
+
+
+console.log('###Alamcenamiento-->',system.almacenamiento);
+
+localStorage.setItem('almacenamiento',JSON.stringify(system.almacenamiento));*/
