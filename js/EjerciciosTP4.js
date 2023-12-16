@@ -304,8 +304,6 @@ class Libro{
     console.log(`El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene páginas  ${this.numeroDePag}`)
  }
 
-
- 
 }
 
 class biblioteca{
@@ -341,14 +339,7 @@ masHojas() {
         return src
        ;
   }
-  }
-  mostrarInformacion() {
-    for (let i = 0; i < this.repositorio.length; i++) {
-        let libros = this.repositorio[i];
-        console.log(libros.mostrarInformacion());
-    }
-}
-}
+
 
 
 const PrimerLibro=new biblioteca;
