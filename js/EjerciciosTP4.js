@@ -1,6 +1,5 @@
-console.log('Estamos TP4');
+console.log("Estamos TP4");
 //1. Crea un objeto llamado auto que tenga algunas características como el color, marca, modelo y si está encendido o apagado. Crea los métodos necesarios para permitir encender y apagar el auto.
-
 
 // Definir el objeto "auto"
 /*let auto = {
@@ -79,7 +78,6 @@ respuesta=confirm('¿Desea ingresar mas dinero?');
 
 document.write('La cuenta actualizada del tiular',  banco.titular, ' es :' + banco.informar());*/
 
-
 /*let suma=0;
 
 do {
@@ -93,7 +91,6 @@ do {
     }
     document.write('</br>');
 }while(suma<500);*/
-
 
 //3. Escribe una clase que permita crear distintos objetos “rectángulos”, con las propiedades de alto y ancho, mas los métodos necesarios para modificar y mostrar sus propiedades, calcular el perímetro y el área
 
@@ -146,38 +143,40 @@ console.log('Perímetro:', miRectangulo2.perimetro());*/
 //Posteriormente, cree tres instancias de este objeto y guárdalas en un array.
 //Por último, utilice el método imprime datos para mostrar por pantalla los valores de los tres objetos instanciados.
 
+class Productos {
+  constructor(codigo, nombre, precio) {
+    this.codigo = codigo || 1;
+    this.nombre = nombre || "A";
+    this.precio = precio || 1;
+  }
 
-class Productos{
-    constructor(codigo,nombre, precio){
-        this.codigo=codigo || 1;
-        this.nombre=nombre || 'A';
-        this.precio=precio || 1;
-    }
+  imprimirDatos() {
+    console.log(
+      `El producto codigo : ${this.codigo}, es un:   ${this.nombre}, cuyo precio es: ${this.precio}`
+    );
+  }
+}
 
-    imprimirDatos(){
-        console.log(`El producto codigo : ${this.codigo}, es un:   ${this.nombre}, cuyo precio es: ${this.precio}`)
-    };
-    }
+const Producto1 = new Productos(1, "Televisor", 100000);
+Producto1.imprimirDatos();
 
-  const Producto1=new Productos(1, 'Televisor', 100000);
-  Producto1.imprimirDatos();
+const array = [
+  new Productos(1, "Televisor", 100000),
+  new Productos(2, "Televisor", 100020),
+  new Productos(3, "Televisor", 100300),
+];
 
- const array=[new Productos(1, 'Televisor', 100000), 
-              new Productos(2, 'Televisor', 100020),
-              new Productos(3, 'Televisor', 100300)];
-            
- console.log(array.length);
+console.log(array.length);
 
- //1 forma de recorrer array de objetos
- /*for (const Productos of array) {
+//1 forma de recorrer array de objetos
+/*for (const Productos of array) {
     Productos.imprimirDatos();
 };*/
 
 //2 forma de recorrer bucle de objetos
-for(i=0; i<array.length; i++){
-array[i].imprimirDatos();
+for (i = 0; i < array.length; i++) {
+  array[i].imprimirDatos();
 }
-
 
 /*Crea una clase llamada Persona que siga las siguientes condiciones:
 Sus propiedades son: nombre, edad, DNI, sexo (H hombre, M mujer), peso y altura, año de nacimiento. Si quieres añadir alguna propiedad extra puedes hacerlo.
@@ -185,67 +184,74 @@ Los métodos que se debe poder utilizar  son:
 mostrarGeneracion: este método debe mostrar un mensaje indicando a qué generación pertenece la persona creada y cual es el rasgo característico de esta generación.
 Para realizar este método tener en cuenta la siguiente tabla de generaciones*/
 
+class Person {
+  constructor(nombre, edad, dni, sexo, peso, altura, añoNacimiento) {
+    this.nombre = nombre || null;
+    this.añoNacimiento = añoNacimiento || 1;
+    this.edad = edad || 1;
+    this.dni = dni || 1;
+    this.sexo = sexo || null;
+    this.peso = peso || 1;
+    this.altura = altura || 1;
+  }
 
-class Person{
-    constructor(nombre, edad, dni,sexo, peso, altura, añoNacimiento){
-        this.nombre=nombre || null;
-        this.añoNacimiento=añoNacimiento|| 1;
-        this.edad=edad ||1;
-        this.dni=dni||1;  
-        this.sexo= sexo || null ;
-        this.peso= peso || 1;
-        this.altura=altura ||1;
-        
+  mostrarGeneracion(añoNacimiento) {
+    let generacion = "";
+
+    if (this.añoNacimiento >= 1994 && this.añoNacimiento <= 2010) {
+      generacion = "Pertenece a la generación z: IRREVERENCIA";
+    } else if (this.añoNacimiento >= 1981 && this.añoNacimiento <= 1993) {
+      generacion = "Pertene a la generacion Y milennia: FRUSTRACION";
+    } else if (this.añoNacimiento >= 1969 && this.añoNacimiento <= 1989) {
+      generacion = "Pertene a la generacion X: OBSESION POR EL EXITO";
+    } else if (this.añoNacimiento >= 1949 && this.añoNacimiento <= 1968) {
+      generacion = "Pertene a la Baby Boom: AMBICION";
+    } else if (this.añoNacimiento >= 1930 && this.añoNacimiento <= 1948) {
+      generacion = "Pertene a la generacion Silent Generation: AUSTERIDAD";
+    } else {
+      generacion = "Su fecha no aparece";
     }
+    return generacion;
+  }
+  esMayorDeEdad(edad) {
+    let mayorEdad = "";
+    if (this.edad > 18) {
+      mayorEdad = "Usted es mayor de edad";
+    } else {
+      mayorEdad = "Usted es menor de edad";
+    }
+    return console.log(mayorEdad);
+  }
 
+  generarDNI() {
+    this.dni = Math.floor(Math.random() * 1000000000) + 100000000;
+    console.log("Su dni es: ", this.dni);
+  }
 
-    mostrarGeneracion(añoNacimiento){
-        let generacion='';
-
-        if(this.añoNacimiento>=1994 && this.añoNacimiento<=2010){
-           generacion='Pertenece a la generación z: IRREVERENCIA';
-        }else if(this.añoNacimiento>=1981 &&  this.añoNacimiento<=1993){
-            generacion='Pertene a la generacion Y milennia: FRUSTRACION';
-        }else if(this.añoNacimiento>=1969 && this.añoNacimiento<=1989){
-          generacion='Pertene a la generacion X: OBSESION POR EL EXITO';
-        }else if(this.añoNacimiento>=1949 &&  this.añoNacimiento<=1968){
-           generacion='Pertene a la Baby Boom: AMBICION';
-        }else if(this.añoNacimiento>=1930 && this.añoNacimiento<=1948){
-           generacion='Pertene a la generacion Silent Generation: AUSTERIDAD';
-        }else{
-                generacion='Su fecha no aparece';
-            }
-       return generacion
+  mostrarDatos() {
+    console.log(
+      `A continuacion se muestra su informacion: su nombre es: ${
+        this.nombre
+      }, cuyo dni es ${this.dni}, tiene ${
+        this.edad
+      } años, por lo que, ${this.esMayorDeEdad()} es de sexo ${
+        this.sexo
+      }, su año de nacimiento es en ${
+        this.añoNacimiento
+      } por lo que ${this.mostrarGeneracion()}, y su altura y peso son ${
+        this.altura
+      } y ${this.peso} respectivamente`
+    );
+  }
 }
-   esMayorDeEdad(edad){
-    let mayorEdad=''
-    if(this.edad>18){
-        mayorEdad='Usted es mayor de edad'}
-        else {
-           mayorEdad='Usted es menor de edad';
-        }
-        return console.log (mayorEdad);
-    }
 
+const persona1 = new Person("Zoleica", 14, null, "femenino", 54, 154, 1989);
+persona1.esMayorDeEdad();
+persona1.generarDNI();
+persona1.esMayorDeEdad();
+persona1.mostrarGeneracion();
 
-    generarDNI() {
-        this.dni = Math.floor(Math.random() * 1000000000) + 100000000;
-        console.log('Su dni es: ', this.dni);
-    }
-
-    mostrarDatos(){
-        console.log(`A continuacion se muestra su informacion: su nombre es: ${this.nombre}, cuyo dni es ${this.dni}, tiene ${this.edad} años, por lo que, ${this.esMayorDeEdad()} es de sexo ${this.sexo}, su año de nacimiento es en ${this.añoNacimiento} por lo que ${this.mostrarGeneracion()}, y su altura y peso son ${this.altura} y ${this.peso} respectivamente`)
-    }
-   }
-    
-   const persona1=new Person('Zoleica', 14, null, 'femenino', 54, 154, 1989);
-   persona1.esMayorDeEdad();
-   persona1.generarDNI();
-   persona1.esMayorDeEdad();
-   persona1.mostrarGeneracion();
-
-
-  /*6- Crear una clase Libro que contenga al menos las siguientes propiedades:
+/*6- Crear una clase Libro que contenga al menos las siguientes propiedades:
 ISBN
 Título
 Autor
@@ -258,109 +264,111 @@ Crear sus respectivos métodos get y set correspondientes para cada propiedad. C
 Crear al menos 2 objetos libros y utilizar el método mostrarLibro();
 Por último, indicar cuál de los 2 objetos “libros” tiene más páginas*/
 
+class Libro {
+  constructor(isbn, titulo, autor, numeroDePag) {
+    this.isbn = isbn;
+    this.titulo = titulo;
+    this.autor = autor;
+    this.numeroDePag = numeroDePag;
+  }
 
-
-class Libro{
-    constructor(isbn, titulo, autor, numeroDePag){
-        this.isbn=isbn;
-        this.titulo=titulo;
-        this.autor=autor;
-        this.numeroDePag=numeroDePag;
-    }
-
-  get ISBN(){
+  get ISBN() {
     return this.isbn;
   }
 
-  set ISBN(newisbn){
-    this.isbn=newisbn;
+  set ISBN(newisbn) {
+    this.isbn = newisbn;
   }
 
-  get TITULO(){
+  get TITULO() {
     return this.titulo;
   }
 
-  set TITULO(newtitulo){
-    this.titulo=newtitulo;
+  set TITULO(newtitulo) {
+    this.titulo = newtitulo;
   }
 
-  get AUTOR(){
+  get AUTOR() {
     return this.autor;
   }
 
-  set AUTOR(newautor){
-    this.autor=newautor;
+  set AUTOR(newautor) {
+    this.autor = newautor;
   }
 
-  get PAGINA(){
+  get PAGINA() {
     return this.numeroDePag;
   }
 
-  set PAGINA(newnumeroDePag){
-    this.numeroDePag=newnumeroDePag;
+  set PAGINA(newnumeroDePag) {
+    this.numeroDePag = newnumeroDePag;
   }
 
- mostrarInformacion(){
-    console.log(`El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene páginas  ${this.numeroDePag}`)
- }
-
+  mostrarInformacion() {
+    console.log(
+      `El libro ${this.titulo} con ISBN ${this.isbn} creado por el autor ${this.autor} tiene páginas  ${this.numeroDePag}`
+    );
+  }
 }
 
-class biblioteca{
-    constructor(){
-        this.repositorio=[];
-    }
+class biblioteca {
+  constructor() {
+    this.repositorio = [];
+  }
 
-agregarLibro(libro){
+  agregarLibro(libro) {
     this.repositorio.push(libro);
-    console.log('Agrego su libro correctamente');
-}    
-
-masHojas() {
-    if (this.repositorio.length === 0) {
-        console.log('La biblioteca está vacía.');
-    } else if (this.repositorio.length === 1) {
-        console.log('Solo ingresó un libro, ingrese otro para comparar.');
-    } else {
-        let libroConMasPaginas = this.repositorio[0].numeroDePag;
-
-        for (let i = 1; i < this.repositorio.length; i++) {
-            if (this.repositorio[i].numeroDePag > libroConMasPaginas) {
-                libroConMasPaginas = this.repositorio[i];
-            }
-        }
-        console.log(`El libro con mas paginas es: ${libroConMasPaginas.titulo} y tiene ${libroConMasPaginas.numeroDePag} paginas`);
-    }
-}
-    mostrarInformacion(){
-        let src=''
-        for (let i = 0; i < this.repositorio.length; i++) {
-        src+=this.repositorio[i];
-        return src
-       ;
+    console.log("Agrego su libro correctamente");
   }
 
+  masHojas() {
+    if (this.repositorio.length === 0) {
+      console.log("La biblioteca está vacía.");
+    } else if (this.repositorio.length === 1) {
+      console.log("Solo ingresó un libro, ingrese otro para comparar.");
+    } else {
+      let libroConMasPaginas = this.repositorio[0].numeroDePag;
 
+      for (let i = 1; i < this.repositorio.length; i++) {
+        if (this.repositorio[i].numeroDePag > libroConMasPaginas) {
+          libroConMasPaginas = this.repositorio[i];
+        }
+      }
+      console.log(
+        `El libro con mas paginas es: ${libroConMasPaginas.titulo} y tiene ${libroConMasPaginas.numeroDePag} paginas`
+      );
+    }
+  }
+  mostrarInformacion() {
+    let src = "";
+    for (const i in this.repositorio) {
+        if(this.repositorio[i].titulo==='Zoleica'){
+            break;
+        }
+        src+=JSON.stringify(this.repositorio[i]);
+     }
+     return src;
+    }
+    
+       // console.log(this.repositorio[i]);
+        //src += this.repositorio[i].toString();
+    }
 
-const PrimerLibro=new biblioteca;
+const PrimerLibro = new biblioteca();
 
 do {
-    let listaFinal;
-    let isbn1 = parseInt(prompt('Ingrese el ISBN'));
-    let titulo1 = prompt('Ingrese el titulo');
-    let autor1 = prompt('Ingrese el autor');
-    let numeroDePag1 = parseInt(prompt('Ingrese la cantidad de paginas'));
-    const Libros = new Libro(isbn1, titulo1, autor1, numeroDePag1);
-    PrimerLibro.agregarLibro(Libros);
-    Libros.mostrarInformacion();
+  let isbn1 = parseInt(prompt("Ingrese el ISBN"));
+  let titulo1 = prompt("Ingrese el titulo");
+  let autor1 = prompt("Ingrese el autor");
+  let numeroDePag1 = parseInt(prompt("Ingrese la cantidad de paginas"));
+  const Libros = new Libro(isbn1, titulo1, autor1, numeroDePag1);
+  PrimerLibro.agregarLibro(Libros);
+  Libros.mostrarInformacion();
+} while (confirm("Quiere ingresar otro libro?"));
 
-
-} while (confirm('Quiere ingresar otro libro?'));
-
-PrimerLibro.mostrarInformacion();
+console.log(PrimerLibro.mostrarInformacion());
 PrimerLibro.masHojas();
 
-;
 /*Libro1.AUTOR='Juan';
 console.log(Libro1.AUTOR);
 Libro1.mostrarInformacion()
